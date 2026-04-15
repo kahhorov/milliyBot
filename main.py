@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 
 # --- SOZLAMALAR ---
 BOT_TOKEN = "8634701175:AAHUDA6pAiuSHViQttID5Z6kwtufb5CuRAo"
-FRONTEND_URL = "http://localhost:5173"
+FRONTEND_URL = "https://milliy-three.vercel.app"
 MAIN_ADMIN_ID = 7114973309  # O'ZINGIZNING TELEGRAM ID RAQAMINGIZNI SHU YERGA YOZING!
 
 bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
