@@ -45,7 +45,9 @@ logger = logging.getLogger(__name__)
 BOT_TOKEN     = os.getenv("BOT_TOKEN", "YOUR_BOT_TOKEN")
 MAIN_ADMIN_ID = int(os.getenv("MAIN_ADMIN_ID", "0"))
 FRONTEND_URL  = os.getenv("FRONTEND_URL", "")
-WEBHOOK_URL   = os.getenv("WEBHOOK_URL", "")
+# WEBHOOK_URL berilmasa — Render avtomatik beradigan RENDER_EXTERNAL_URL ishlatiladi.
+# Shu tufayli Render'da qo'shimcha sozlamasiz webhook rejimi o'zi yoqiladi.
+WEBHOOK_URL   = os.getenv("WEBHOOK_URL", "") or os.getenv("RENDER_EXTERNAL_URL", "")
 WEBHOOK_PATH  = f"/webhook/{BOT_TOKEN}"
 DB_PATH       = "database.db"
 PORT          = int(os.getenv("PORT", "8000"))

@@ -1,0 +1,30 @@
+# Render Blueprint — Milliy CRM Telegram bot
+# https://render.com/docs/blueprint-spec
+#
+# Ishlatish: Render Dashboard -> New -> Blueprint -> shu repo'ni tanlang.
+# Maxfiy qiymatlar (sync: false) Render'da qo'lda kiritiladi.
+services:
+  - type: web
+    name: milliy-crm-bot
+    runtime: python
+    plan: free
+    region: frankfurt          # O'zbekistonga eng yaqin bepul region
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /
+    envVars:
+      # ── Majburiy maxfiy qiymatlar (Render'da qo'lda kiritiladi) ──
+      - key: BOT_TOKEN
+        sync: false            # @BotFather bergan token
+      - key: MAIN_ADMIN_ID
+        sync: false            # Sizning Telegram user ID
+      - key: API_SECRET
+        sync: false            # /send-notifications uchun uzun tasodifiy kalit
+      - key: FIREBASE_KEY_JSON
+        sync: false            # serviceAccountKey.json ning BUTUN ichi (bitta qatorda)
+      # ── Ixtiyoriy ──
+      - key: FRONTEND_URL
+        value: https://your-crm.vercel.app   # CORS uchun CRM manzili
+      # WEBHOOK_URL berilmadi — Render RENDER_EXTERNAL_URL ni o'zi beradi,
+      # bot avtomatik webhook rejimida ishlaydi.
