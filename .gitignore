@@ -1,0 +1,36 @@
+# Firebase service account
+serviceAccountKey.json
+*serviceAccount*.json
+*firebase*.json
+*-adminsdk-*.json
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Virtual env
+venv/
+.venv/
+env/
+
+# Database
+database.db
+*.sqlite
+*.db
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
